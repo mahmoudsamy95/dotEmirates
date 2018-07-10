@@ -65,7 +65,8 @@ function dotemirates_theme_opts_page(){
                         <input type="text" class="form-control" name="de_inputTelegram" value="<?php echo $theme_opts['telegram']; ?>">
 
                     </div>
-                    <div class="input-group"><div type="text" class="form-control" placeholder="Logo Image" name="de_inputLogoImg"></div>
+                    <div class="input-group"><div type="text" class="form-control" placeholder="Logo Image" name="de_inputLogoImg"
+                        value="<?php echo $theme_opts['logo_img']; ?>"></div>
                         <span class="input-group-btn">
                             <button class="btn btn-primary" type="button" id="de_uploadLogoImgBtn">Upload</button>
                         </span></div>
@@ -128,6 +129,7 @@ function de_save_options(){
     $opts['twitter']  =  sanitize_text_field($_POST['de_inputTwitter']);
     $opts['facebook']  =  sanitize_text_field($_POST['de_inputFacebook']);
     $opts['telegram']  =  sanitize_text_field($_POST['de_inputTelegram']);
+    $opts['logo_img']  =esc_url_raw($_POST['de_inputLogoImg']) ;
 
     update_option('de_opts', $opts);
     wp_redirect(admin_url('admin.php?page=dotemirates_theme_opts&status=1'));

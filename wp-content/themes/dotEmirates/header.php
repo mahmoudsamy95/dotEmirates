@@ -1,3 +1,5 @@
+<?php $theme_opts = get_option(de_opts); ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -31,9 +33,21 @@
                     <div class="icon"><i class="icon-search"></i></div>
                 </div>
                 <div class="one mainSocial">
-                    <a href="#"><i class="icon-telegram"></i></a>
-                    <a href="#"><i class="icon-twitter"></i></a>
-                    <a href="#"><i class="icon-facebook"></i></a>
+                    <?php
+                    if(!empty($theme_opts['twitter'])){
+                       ?> <a href="http://twitter.com/<?php echo $theme_opts['twitter']; ?>"><i class="icon-twitter"></i></a><?php
+                    }
+                    if(!empty($theme_opts['facebook'])){
+                       ?> <a href="http://facebook.com/<?php echo $theme_opts['facebook']; ?>"><i class="icon-facebook"></i></a<?php
+                    }
+                    if(!empty($theme_opts['telegram'])){
+                       ?> <a href="http://telegram.com/<?php echo $theme_opts['telegram']; ?>"><i class="icon-telegram"></i></a><?php
+                    }
+
+                    ?>
+
+                   <!-- <a href="#"><i class="icon-twitter"></i></a>
+                    <a href="#"><i class="icon-facebook"></i></a>-->
                 </div>
                 <div class="one widgets clearfix">
                     <div class="oneWidget">
